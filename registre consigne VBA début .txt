@@ -1,0 +1,31 @@
+registre consigne VBA
+
+
+ Dim b(1 To 31, 1 To 2)
+    For i = 1 To 31
+        b(i, 1) = Worksheets("ccTDS").Cells(47, i).Value
+    Next i
+    
+    For lig = LBound(b, 1) To UBound(b, 1)
+        Cells(lig, 1) = b(lig, 1)
+    Next lig
+    
+    lvoArray = Array("N", "S2", "S1", "J2", "J1", "M", "M2", "M6", "J7", "J8", "J6", "J")
+    
+    ''' ne fonctionne pas
+    Dim lvoArray2(1 To 10)
+    For i = 2 To 6
+        lvoArray2(i) = Worksheets("lvo").Cells(i, 1).Value
+    Next i
+        
+         
+    For lig = LBound(b, 1) To UBound(b, 1)
+        If IsNumeric(Application.Match(b(lig, 1), lvoArray, 0)) Then
+        Cells(lig, 2) = b(lig, 1)
+        End If
+    Next lig
+    
+    MsgBox "tri effectué"
+    
+    
+End Sub 

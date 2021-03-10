@@ -1,0 +1,13 @@
+si debug faux:
+f vérif sur 1 case de marquage
+sheet (myRegistre).delete
+for each sheet: .hide
+add sheet(myRegistre)+ marquage
+
+
+si débug vrai créer macro p masquer démasquer toutes les sheets
+
+
+
+
+

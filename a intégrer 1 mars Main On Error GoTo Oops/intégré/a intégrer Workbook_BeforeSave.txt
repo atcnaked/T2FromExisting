@@ -1,0 +1,18 @@
+ Option Explicit
+
+Public DEBUGMODE As Boolean
+
+Private Sub Workbook_BeforeSave(ByVal SaveAsUI As Boolean, Cancel As Boolean)
+    If DEBUGMODE Then
+        If Range("ligne_TOTAL_ajustée").Value Then
+        	MsgBox "Sûr ? Enregistrer une feuille éditée rendre de la inutilisable"
+		Cancel = True
+        Else
+        	MsgBox "Pensez à réactivez la fonction Save avant d'enregistrer"
+		
+        End If
+        
+    Else
+        MsgBox "ne rien mettre ? la fonction Save a été désactivée"
+        Cancel = True
+    End If

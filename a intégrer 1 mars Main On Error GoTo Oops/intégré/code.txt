@@ -1,0 +1,103 @@
+Option Explicit
+
+Public WorkingDayList
+Public modeOne As Boolean
+Public dateCaseA1 As Date
+
+
+Sub Main()
+    modeOne = False
+    WorkingDayList = Range("VAC").Value ' chargement de WorkingDayList
+    
+    MsgBox "initialisation de certaines cellules: ss doute à mettre ds une sub initialisation dédiée"
+    Range("SourceFileOBnumber").Value = Range("SourceFileOBnumberInit").Value
+    
+ 
+    
+    MsgBox "design mode / penser à activer save"
+    
+    UF1_Selection.Show
+
+    If modeOne Then
+        MsgBox "modeOne lancé"
+        Dim fullPathOrname As String
+        fullPathOrname = Range("SourceFPChosen").Value
+        Dim tds As Workbook
+        
+        On Error GoTo Oops
+        Set tds = Workbooks.Open(fullPathOrname)
+        
+
+    
+    '''''''''''''''''''
+    
+    
+        'Set tds = Workbooks.Open(fullPathOrname)
+        tds.Sheets(nomFeuilleDuMois).Activate
+    Else
+        MsgBox "mode2 lancé"
+        If Workbooks.Count <> 2 Then
+            Dim textInfoDeuxFichiers As String
+            textInfoDeuxFichiers = "le programme attend exactement deux fichiers excel ouverts: le TDS général et le générateur de registre: " + vbLf _
+            + "fermez tous les fichiers excel, ouvrez le fichier TDS à exploiter et selectionnez la case du trigramme du mois qui vous intéresse." + vbLf _
+            + "relancer le générateur de registre."
+            MsgBox textInfoDeuxFichiers, vbOKOnly + vbInformation, "Le programme va s'arrêter"
+            End
+        Else
+            If Workbooks(2).Name = ActiveWorkbook.Name Then ' tester avec If Workbooks(2) = thisWorkBook Then 'ou tester avec If Workbooks(2) = ActiveWorkbook Then
+                Workbooks(1).ActiveSheet.Activate
+            Else
+                Workbooks(2).ActiveSheet.Activate
+            End If
+            ValideActiveCellEtSelectTrigr
+        End If
+    End If
+    
+    ' à partir d ici ActiveWB est le fichier TDS
+    
+    
+    ImporteDonneesColonneA1_TRIGRAMME
+    trouveNumeroLigneTrigr
+    
+    copieEtFusionneVAC_LignesTrigr
+    
+    MsgBox "f traitement dateCaseA1"
+    'dateCaseA1 = As Date il me semble qu on la gère en commun
+    litCaseA1
+    
+    'Retour au Wb registre auto
+    MsgBox "test Retour au Wb registre auto avec ThisWorkbook.RegisterSheet.Activate"
+    
+    ' normalement de code est commun au deux mode
+    ThisWorkbook.Sheets("ORIGINAL2").Activate
+    ' à partir d ici ActiveWB est le fichier TDS
+    '''''''
+    'If Workbooks(2).Name = ActiveWorkbook.Name Then
+    '    Workbooks(1).ActiveSheet.Activate
+    'Else
+    '    Workbooks(2).ActiveSheet.Activate
+    'End If
+    '''''''
+    ecritCaseA1
+    tri_joinedLines
+    afficheTri
+    inititialisation
+    MsgBox "création terminé, désactiver save, masquer et vérouiller feuille" 'à supprimer
+    Exit Sub
+Oops:
+    MsgBox "une erreur s'est produite à l'ouverture du fichier"
+    'UF1_Selection.Show
+    Main
+End Sub
+
+Private Sub Open_TDS_Workbook()
+    On Error GoTo Oops
+        Set tds = Workbooks.Open(fullPathOrname)
+        
+    Exit Sub
+Oops:
+    MsgBox "une erreur s'est produite à l'ouverture du fichier"
+    'UF1_Selection.Show
+    Main
+    
+End Sub

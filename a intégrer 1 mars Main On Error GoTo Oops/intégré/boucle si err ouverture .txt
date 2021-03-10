@@ -1,0 +1,24 @@
+
+si mode 1:
+qqlq initialisations
+open file
+
+
+on error > main
+
+mettre end à la fin de main !!!
+
+attention à tout ré initialiser comme il faut
+
+
+Cependant c'est insatisfaisant...
+
+
+
+
+
+
+
+
+
+

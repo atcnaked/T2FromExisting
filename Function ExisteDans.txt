@@ -1,0 +1,11 @@
+Function ExisteDans(mot As String, Tabl) As Boolean
+    Dim var As Variant
+    On Error Resume Next
+    ExisteDans = Application.Match(mot, Tabl, 0)
+    'On Error GoTo 0
+    If EstDansFred = True Then
+        'on ne fait rien du tout
+    Else
+        EstDansFred = False
+    End If
+End Function

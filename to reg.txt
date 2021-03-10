@@ -1,0 +1,37 @@
+f simple p le traitement depuis noms: considérer que nom Fichier contient systématiquement année (on a le mode manuel sinon), 
+ça permettra de traiter les fichiers programmés et un fichier sélectionné par user pareil. 
+On f traitement nom Fichier ds excel, plus sûr 
+
+Vba ouvrir tds.xls en lecture seule
+
+créer 1 feuille p persistance UF2 ?
+
+Init: cache toutes les feuilles et montre registre
+
+f on error p ouverture wb
+
+click Lauch met mode1 à true et ferme UF1
+Si mode1 == true: ouverture wb
+Sinon chv to other wb
+
+Désactiver save après déplacement de la ligne Total? Ou dès le début ? 
+Ou selon condition debug
+
+Modif heures :  selection change: CB initialisée q valeurs, proposition en séparant H et M, créer range avec  
+min possibles selon arrondi, créer col bool userModified, option  
+passer heure en instruit, instructeur ,seul, sim, option réinitialiser lignelist trigr: 
+
+
+marqueur fin de liste + recuperation ligne marqueur + explication + création array fct marqueur 
+
+Créer fonction qui renvoie plage ab 2 variables (variable nommée et no lignes, a col est le numero de col dl variable) , 
+on peut même suppr la variable no ligne si on compte jusqu'au EOList ou si on tombe sur chaine vide 
+(au quel cas la liste ne doit pas comporter de chaine vide
+-option si première ligne vide (p lisibilité) : disregard
+
+W v mot clé range dynamique
+
+
+Gère cas où la liste d trigramme contient cellules vides: disregard dès la fonction test
+
+Edition intermédiaire :  coller liste ds une page avec CB p chaque jour

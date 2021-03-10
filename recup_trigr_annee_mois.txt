@@ -1,0 +1,54 @@
+
+Sub aa_recup_trigr_annee_mois_affcell_1_1()
+ 
+'Declare variables and data types
+Dim TDSwb As Workbook
+Dim ws As Worksheet
+Dim ligneCTL As Long
+Dim trigr As String
+Dim nomFeuilleTDS As String
+Dim dateFeuille_1_1 As Long
+
+ 
+If Workbooks.Count <> 2 Then
+    MsgBox "le programme attend exactement deux fichiers excel ouverts: le TDS et le générateur de registre: " + vbLf _
+    + "fermez tous les fichiers excel, ouvrez le fichier TDS à exploiter et selectionnez la case du trigramme du mois qui vous intéresse." + vbLf _
+    + "relancer le générateur de registre."
+    
+Else
+    MsgBox "Le générateur de registre considère que vous avez auparavant selectionné la case du trigramme dans la feuille du fichier TDS qui vous intéresse. mettre sélection abandonner ou poursuivre"
+    
+    If Workbooks(2).Name = ActiveWorkbook.Name Then
+        MsgBox "then"
+        Workbooks(1).ActiveSheet.Activate
+    Else
+        MsgBox "else"
+        Workbooks(2).ActiveSheet.Activate
+    End If
+
+    nomFeuilleTDS = ActiveSheet.Name
+    dateFeuille_1_1 = Cells(1, 1)
+    ligneCTL = ActiveCell.Row
+    trigr = Cells(ActiveCell.Row, 1).Value
+
+    'MsgBox "ici"
+        MsgBox nomFeuilleTDS
+    MsgBox Year(dateFeuille_1_1)
+    MsgBox Month(dateFeuille_1_1)
+    MsgBox ligneCTL
+    MsgBox trigr
+    
+    'ici copier data vers b
+
+    If Workbooks(2).Name = ActiveWorkbook.Name Then
+        Workbooks(1).ActiveSheet.Activate
+    Else
+        Workbooks(2).ActiveSheet.Activate
+    End If
+        
+    'ici copier data vers registre
+
+End If
+
+
+End Sub
