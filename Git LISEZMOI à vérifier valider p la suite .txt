@@ -1,0 +1,30 @@
+Donc d'abord créer repository dans GitHub: une page affiche automatiquement le lien: 
+par exemple ça devrait ressembler à ça: https://github.com/atcnaked/T2FromExisting.git
+
+à vérifier/ valider p la suite: il faut être connecté dans Git avec nom user, je crois bien qu'il faut se reconnecter à chaque redémmarrage
+il y a 2 UI pour Git: la base (Git GUI) et celle où on gére les commit (Git GitRepo):
+
+Dans Git GUI> create new repository: là il faut indiquer le dossier: 
+il peut déjà exister et comporter des fichier ou bien on peut le créer à ce moment là.
+
+Git GitRepo s'ouvre automatiquement: > remote > fetch from ou bien > remote >  add 
+(je ne sais plus lequel est le bon mais à la première utilisation le deux doivent marcher car add initialise le fetch):
+> indiquer l'adresse fournie par GitHub dans location.
+Git m'a demandé les codes d'accès à GitHub en les récupérant directement dans le navigateur: j'ai accepté
+
+Ensuite on a deux choix: 
+-soit on veut importer depuis GitHub: je n'ai pas fait mais c'est probablement via  > remote > fetch from
+
+-soit on veut envoyer vers GitHub: classique rescan (automatique à la première fois apparemment), stage, commit and push
+
+
+
+
+
+
+
+
+
+
+
+

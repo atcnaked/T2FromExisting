@@ -1,0 +1,11 @@
+Git GUI p créer repo
+
+ouvrir cmd:
+
+ça demande ça (persistance? à creuser)
+git config --global user.name "atcnaked"
+git config --global user.email fred.gotpub@gmail.com 
+
+on peut y accéder ds edit> options
+
+on accède à l historique des commit via repository> visualize master only
